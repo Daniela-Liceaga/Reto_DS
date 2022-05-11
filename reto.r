@@ -45,9 +45,11 @@ ggpairs(datos, lower = list(continuous = "smooth"),
 
 modelo1 <- lm(final_price ~ m2 + parking_lots + num_bedrooms, data = datos )
 summary(modelo1)
+anova(modelo1)
+hist(modelo1$residuals)
 
-modelo2 <- lm(final_price ~ m2 + parking_lots + num_bedrooms +  colonia, data = datos )
-summary(modelo2)
+#modelo2 <- lm(final_price ~ m2 + parking_lots + num_bedrooms +  colonia, data = datos )
+#summary(modelo2)
 
 
 plot1 <- ggplot(data = datos, aes(m2, modelo1$residuals)) +
